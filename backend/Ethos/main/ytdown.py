@@ -5,7 +5,7 @@ def download(link):
     youtube_1=YouTube(link)
     videos=youtube_1.streams.filter(only_audio=True)
     idcnt=10000
-    path='main/media/'
+    path='main/audio/'
     filename=youtube_1.title+'.mp3'
     videos[0].download(path,filename)
     tempath=path+filename

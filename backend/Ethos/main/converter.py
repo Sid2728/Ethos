@@ -8,7 +8,7 @@ def Convert(vid,request):
   video=moviepy.editor.VideoFileClip(vid)
   audio=video.audio
   print(audio)
-  filepath="main/media/"+vid[vid.rfind('/')+1:vid.rfind('.')]+".mp3"
+  filepath="main/audio/"+vid[vid.rfind('/')+1:vid.rfind('.')]+".mp3"
   audio.write_audiofile(filepath)
   saveaudio=Audio()
   saveaudio.audioFile=filepath
