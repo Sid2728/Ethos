@@ -23,9 +23,11 @@
       <!-- <button class="allAudiosbtn btnclass">All Audios</button> -->
       <button class="analyticsbtn btnclass">Analytics</button>
     </div>
-    <div>
+    <div class="body">
       {% for audio in audios %}
-        <div>audios</div>
+      <div class="singleaudio">
+        <h4 class="audioname">Audio Name : Sample{{ name }}</h4>
+      </div>
       {% endfor %}
     </div>
   </body>

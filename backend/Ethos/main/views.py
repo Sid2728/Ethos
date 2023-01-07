@@ -12,7 +12,7 @@ import secrets
 import random
 import string
 from .ytdown import download
-from . models import Audio
+from . models import Audio,TimeStamp
 def Login(request):
     if request.method == 'POST':
         username = request.POST.get('name')
@@ -71,6 +71,13 @@ def askconvert(request):
 
 def audio_detail(request,pk):
     audio = Audio.objects.get(id=pk)
+    if request.POST:
+        timestamp = TimeStamp()
+        timestamp.audio = audio
+        timestamp.comment = request.POST.get('comment')
+        timestamp.time = '00:' + request.POST.get('time')
+        timestamp.save()
+        redirect('allaud')
     context = {
         "audio":audio,
     }
