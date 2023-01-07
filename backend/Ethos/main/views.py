@@ -63,7 +63,7 @@ def askconvert(request):
         temp.video.save(videom.name,videom)
         temp.save()
         Convert("Ethos/backend/Ethos/main/media/"+videom.name)
-    return render(request,'main/homepage.html')
+    return render(request,'main/pagetwo.html')
 
 def download_view(request):
 
@@ -76,4 +76,5 @@ def download_view(request):
 
 
     return render(request, 'download.html', {'url': url})
-
+def Allaud(request):
+    return render(request,'main/pagefour.html')
