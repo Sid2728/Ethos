@@ -62,10 +62,12 @@ def askconvert(request):
         temp = upload()
         temp.video.save(videom.name,videom)
         temp.save()
-        Convert("main/media/"+videom.name)
+        Convert("Ethos/backend/Ethos/main/media/"+videom.name)
         # print(audio_file)
         
     return render(request,'main/homepage.html')
+    Convert("Ethos/backend/Ethos/main/media/"+videom.name)
+    return render(request,'main/pagetwo.html')
 
 def download_view(request):
     
@@ -80,3 +82,5 @@ def download_view(request):
     return render(request, 'download.html', {'url': url})
 # def passing(audiofile):
 
+def Allaud(request):
+    return render(request,'main/pagefour.html')

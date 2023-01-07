@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+* {
+  margin: 0%;
+  font-family: "Inter";
+  font-size: 1vw;
+  /* color: #5a49c1; */
+}
+
+.thirdpage {
+  width: 100vw;
+  height: 100%;
+}
+
+.sitetitle {
+  width: 40%;
+  font-size: 1.5vw;
+  background-color: #5a49c1;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 10vh;
+}
+
+.headerpart2 {
+  border: 1px solid #bbbbbb;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbar {
+  margin-left: 30%;
+  width: 40%;
+  height: 45%;
+  border: 2px solid #c0c0c0;
+  border-radius: 10px;
+  display: flex;
+  text-align: center;
+}
+
+.searchbar::placeholder {
+  color: #5a49c1;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.heading {
+  font-size: 2.2vw;
+  margin-bottom: 8%;
+}
+
+.allAudiosbtn {
+  position: relative;
+  left: 10%;
+  color: #ffffff;
+  background-color: #5a49c1;
+  font-size: 1vw;
+  width: 9vw;
+  height: 2.2vw;
+  margin-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border: 1px solid #5a49c1;
+  border-radius: 7px;
+}
+
+.analyticsbtn {
+  position: relative;
+  left: 70%;
+  color: #ffffff;
+  background-color: #5a49c1;
+  font-size: 1vw;
+  width: 9vw;
+  height: 2.2vw;
+  margin-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border: 1px solid #5a49c1;
+  border-radius: 7px;
+}
+
+.inputdatadiv {
+  display: flex;
+  text-align: center;
+}
+
+.input2 {
+  margin-left: 10vw;
+}
+
+.timeinput {
+  margin: 10%;
+  width: 8vw;
+  height: 2vw;
+  padding: 2%;
+  background-color: #ffffff;
+}
+
+.commentinput {
+  margin: 10%;
+  padding: 2%;
+  width: 20vw;
+  height: 8vw;
+  background-color: #ffffff;
+  text-align: center;
+  overflow-y: scroll;
+}
+
+.addCommentBtn {
+  width: 9vw;
+  color: #ffffff;
+  padding: 0.5%;
+  border: 1px solid #5a49c1;
+  background-color: #5a49c1;
+  border-radius: 7px;
+}
+
+.endbtns {
+  position: relative;
+  left: 30%;
+  margin-top: 3%;
+}
+
+.savebtn {
+  width: 6vw;
+  height: 2.4vw;
+  color: #ffffff;
+  padding: 2%;
+  border: 1px solid #5a49c1;
+  background-color: #5a49c1;
+  border-radius: 6px;
+  margin-right: 2vw;
+}
+
+.downloadbtn {
+  width: 8vw;
+  padding: 2%;
+  color: #ffffff;
+  background-color: #5a49c1;
+  border-radius: 7px;
+}
