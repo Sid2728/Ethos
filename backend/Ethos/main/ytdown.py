@@ -1,17 +1,19 @@
 from pytube import YouTube
+from . models import Audio
+
 def download(link):
     youtube_1=YouTube(link)
     videos=youtube_1.streams.filter(only_audio=True)
-#all->format
-    # vid=list(enumerate(videos))
-    # for i in vid:
-    #     print((i[1].abr[0:i[1].abr.index('k')]))
-# strm=min(opns)
-# print(strm)
-# Ethos\backend\Ethos\Ethos\backend\Ethos\main\media\S jaishankar reply to Austria's state broadcaster ORF Full Video.mp3
-# Ethos\backend\Ethos\main\media\vid.mp3
+    idcnt=10000
     path='main/media/'
     filename=youtube_1.title+'.mp3'
     videos[0].download(path,filename)
+    tempath=path+filename
+    saveaudio=Audio()
+    saveaudio.audioFile=tempath
+    saveaudio.uploaded_by_id =3
+    idcnt=idcnt+1
+    saveaudio.save()
+    
 # print("done")
 # print(youtube_1.title)

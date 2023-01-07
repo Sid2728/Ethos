@@ -13,7 +13,7 @@ import secrets
 import random
 import string
 from .ytdown import download
-
+from . models import Audio
 def Login(request):
     if request.method == 'POST':
         username = request.POST.get('name')
@@ -62,18 +62,21 @@ def askconvert(request):
         temp = upload()
         temp.video.save(videom.name,videom)
         temp.save()
-        Convert("Ethos/backend/Ethos/main/media/"+videom.name)
+        Convert("main/media/"+videom.name)
+        # print(audio_file)
+        
     return render(request,'main/homepage.html')
 
 def download_view(request):
-
+    
     if request.method=='POST':
         url = request.POST.get("url")
         download(url)
-
+        
     
         return render(request,'main/askConvert.html')
 
 
     return render(request, 'download.html', {'url': url})
+# def passing(audiofile):
 

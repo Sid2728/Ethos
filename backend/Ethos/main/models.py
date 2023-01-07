@@ -15,4 +15,4 @@ class TimeStamp(models.Model):
     def __str__(self):
         return str(self.time,self.audio)
 class upload(models.Model):
-    video=models.FileField(upload_to="Ethos/backend/Ethos/main/media/")
+    video=models.FileField(upload_to="main/media/")
