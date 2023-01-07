@@ -32,7 +32,7 @@
             <br />
             <input
               id="time"
-              type="time"
+              type="text"
               placeholder="Area for Timestamp"
               value="00:00"
               class="timeinput"
@@ -57,10 +57,17 @@
     </div>
   </body>
   <script>
+    // import moment from 'moment'
     const audio = document.getElementById('audio')
     const time = document.getElementById('time')
+    var ss,mm
     audio.ontimeupdate = () => {
-
+      var t = audio.currentTime
+      ss = Math.floor(t +0.5)%60
+      mm = Math.floor(Math.floor(t + 0.5)/60)
+      if(ss<=9)time.value = '' + mm + ':0' + ss;
+      else time.value = '' + mm + ':' + ss;
+      
     }
   </script>
 </html>

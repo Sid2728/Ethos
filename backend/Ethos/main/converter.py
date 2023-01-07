@@ -13,6 +13,7 @@ def Convert(vid,request,id):
   saveaudio=Audio()
   filepath="main/audio/"+str(id)+".mp3"
   saveaudio.audioFile=filepath
+  saveaudio.audioname = vid[vid.rfind('/')+1:vid.rfind('.')-1]
   saveaudio.uploaded_by_id=request.user.id
   saveaudio.save()
 

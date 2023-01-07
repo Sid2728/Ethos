@@ -59,10 +59,11 @@ def askconvert(request):
         videom = request.FILES.get("vid")
       
         temp = upload()
-        temp.video.save(videom.name,videom)
+        temp.video.save(videom.name.strip().replace(" ","_"),videom)
         temp.save()
-        id = Convert("main/media/"+videom.name,request,temp.id)
+        id = Convert("main/media/"+videom.name.strip().replace(" ","_"),request,temp.id)
         # print(audio_file)
+        # temp.delete()
         return redirect('/audio_detail/'+ str(id))
     
     return render(request,'main/homepage.html')
