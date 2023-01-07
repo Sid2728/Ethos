@@ -134,7 +134,7 @@
   margin-top: 3%;
 }
 
-.savebtn {
+.deletebtn {
   width: 6vw;
   height: 2.4vw;
   color: #ffffff;
@@ -151,4 +151,14 @@
   color: #ffffff;
   background-color: #5a49c1;
   border-radius: 7px;
+}
+
+.btnclass:hover {
+  transition: all 0.4s ease-in-out;
+}
+
+.btnclass:hover,
+.btnclass:focus {
+  transform: scale(1.05, 1.1);
+  box-shadow: 5px 5px 5px grey;
 }

@@ -131,7 +131,7 @@
   margin-top: 3%;
 }
 
-.savebtn {
+.downloadbtn {
   width: 6vw;
   height: 2.4vw;
   color: #ffffff;
@@ -160,6 +160,18 @@
 
 .btnclass:hover,
 .btnclass:focus {
-  /* transition-duration: 100ms; */
+  box-shadow: 5px 5px 5px grey;
   transform: scale(1.05, 1.1);
+}
+
+.logoutbtn {
+  width: 6vw;
+  height: 3vw;
+  margin-left: 20vw;
+  margin-right: 4vw;
+  color: #ffffff;
+  background-color: #5a49c1;
+  border: 1px solid #5a49c1;
+  border-radius: 8px;
+  padding: 3%;
 }
