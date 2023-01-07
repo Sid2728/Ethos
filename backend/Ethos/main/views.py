@@ -37,7 +37,7 @@ def sign_up(request):
         print('hello')
         if form.is_valid():
             print('hello')
-        try: 
+        try:  
             form.save()
             username=form.cleaned_data.get('username')
             messages.success(request,f'Account created for {username}')
@@ -61,7 +61,7 @@ def askconvert(request):
         temp = upload()
         temp.video.save(videom.name,videom)
         temp.save()
-        id = Convert("main/media/"+videom.name,request)
+        id = Convert("main/media/"+videom.name,request,temp.id)
         # print(audio_file)
         return redirect('/audio_detail/'+ str(id))
     
@@ -87,4 +87,8 @@ def download_view(request):
 # def passing(audiofile):
 
 def Allaud(request):
-    return render(request,'main/pagefour.html')
+    audios = Audio.objects.filter(uploaded_by=request.user.id)
+    context = {
+        "audios":audios,
+    }
+    return render(request,'main/pagefour.html',context)

@@ -24,13 +24,14 @@
       <div class="body">
         <h2 class="heading">Your Extracted Audio Is Here</h2>
         <div class="audioplayer">
-          <audio src="./interstellar.mp3" controls></audio>
+          <audio id="audio" src={% static audio.audioFile %} controls></audio>
         </div>
         <div class="inputdatadiv">
           <div class="input1">
             <label for="timestamp">Enter the timestamp : </label>
             <br />
             <input
+              id="time"
               type="time"
               placeholder="Area for Timestamp"
               value="00:00"
@@ -55,4 +56,11 @@
       </div>
     </div>
   </body>
+  <script>
+    const audio = document.getElementById('audio')
+    const time = document.getElementById('time')
+    audio.ontimeupdate = () => {
+
+    }
+  </script>
 </html>

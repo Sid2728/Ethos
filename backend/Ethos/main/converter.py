@@ -4,13 +4,14 @@ from . models import Audio
 
 # video=askopenfilename()
 # print(video)
-def Convert(vid,request):
+def Convert(vid,request,id):
   video=moviepy.editor.VideoFileClip(vid)
   audio=video.audio
   print(audio)
-  filepath="main/audio/"+vid[vid.rfind('/')+1:vid.rfind('.')]+".mp3"
+  filepath="main/static/main/audio/"+str(id)+".mp3"
   audio.write_audiofile(filepath)
   saveaudio=Audio()
+  filepath="main/audio/"+str(id)+".mp3"
   saveaudio.audioFile=filepath
   saveaudio.uploaded_by_id=request.user.id
   saveaudio.save()
