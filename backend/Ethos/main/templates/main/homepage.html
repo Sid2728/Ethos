@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="hm1.css" />
+    <title>Document</title>
+    <style>
+     @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+* {
+  margin: 0%;
+  font-family: "Inter";
+  font-size: 1vw;
+}
+
+.homepage {
+  width: 100vw;
+  height: 100%;
+}
+
+.sitetitle {
+  width: 40%;
+  font-size: 1.5vw;
+  background-color: #5a49c1;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 10vh;
+}
+
+.headerpart2 {
+  border: 1px solid #bbbbbb;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbar {
+  margin-left: 30%;
+  width: 40%;
+  height: 45%;
+  border: 2px solid #c0c0c0;
+  border-radius: 10px;
+  display: flex;
+  text-align: center;
+}
+
+.searchbar::placeholder {
+  color: #5a49c1;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+}
+
+.allAudiosDiv {
+  margin-top: 2%;
+  position: relative;
+  left: 60%;
+}
+
+.allAudiosbtn {
+  color: #ffffff;
+  background-color: #5a49c1;
+  width: 6.8vw;
+  height: 2.2vw;
+  padding-left: 2%;
+  padding-right: 2%;
+  border: 1px solid #5a49c1;
+  border-radius: 8px;
+}
+
+.inputform {
+  margin-top: 5%;
+  font-size: 2vw;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.videoinputbox1 {
+  display: block;
+  cursor: pointer;
+  width: 50vw;
+  height: 30vh;
+  border: 2px solid #cecdcd;
+}
+
+.videoinputtext {
+  color: #a69c9c;
+  font-size: 1vw;
+  text-align: center;
+  margin-top: 12%;
+}
+
+.OR {
+  margin: 1%;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.urlinputbox {
+  display: flex;
+  margin-left: 13vw;
+  width: 25vw;
+  height: 2vw;
+  border: 2px solid #a9a4a4;
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+
+.urlinputpart {
+  display: flex;
+  justify-content: space-between;
+}
+
+.convertbtn {
+  color: #ffffff;
+  background-color: #5a49c1;
+  border-radius: 7px;
+  padding-left: 2%;
+  padding-right: 2%;
+  border: 1px solid #5a49c1;
+}
+
+.urlinputbox::placeholder {
+  color: #bfbfbf;
+  padding-left: 2%;
+}
+    </style>
+  </head>
+  <body>
+    <div class="homepage">
+      <div class="header">
+        
+        <div class="sitetitle" style="font-size: 2.5vw;font-weight: 600; display: flex;"><img style="transform: scale(.19);position:relative;right:20px;" src="{% static 'main/images/Vector 5.png' %}" alt=""><p style="font-size: 2.5vw;font-weight: 600; display: flex; position: relative;right: 100px;">AudioVize</p></div>
+        <div class="headerpart2">
+          <input
+            type="text"
+            class="searchbar"
+            placeholder="Search for Audios"
+          />
+        </div>
+        <a href="{% url 'logout' %}"><button >Logout</button></a>
+      </div>
+      <div class="body">
+        <div class="allAudiosDiv">
+          <button class="allAudiosbtn">All Audios</button>
+        </div>
+        <div class="allForm" style="display:flex ; flex-direction:column; margin-top:60px">
+          <form method="post" class="inputform" action="{% url 'convert' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label class="videoinputbox1">
+              <div class="videoinputtext">Drop Your Video Here</div>
+              <input type="file" class="videoinputbox2" name="vid"/>
+                
+              
+            </label>
+            <button type="submit" class="convertbtn"  style="position:relative;left:22vw; height:40px">Convert</button>
+            <br />
+          </form>
+            <h4 class="OR">OR</h4>
+            <form method="post" action="{% url 'download_view' %}" enctype="multipart/form-data"class="inputform" >
+              {% csrf_token %}
+            <div class="urlinputpart">
+              <input type="url" class="urlinputbox" name="url"/>
+              <button type="submit" class="convertbtn" >Convert</button>
+            </div>
+          </form>
+        </div>
+      
+        <div class="footer"></div>
+      </div>
+    </div>
+  </body>
+</html>
