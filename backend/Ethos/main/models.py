@@ -6,7 +6,7 @@ class Audio(models.Model):
     uploaded_by = models.ForeignKey(User,on_delete=models.CASCADE,related_name='uploader')
     audioFile = models.FileField(upload_to="audio_uploads/audio/")
     def __str__(self):
-        return str(self.id)
+        return str(self.uploaded_by)
 
 class TimeStamp(models.Model):
     audio = models.ForeignKey(Audio,on_delete=models.CASCADE,related_name="audio")

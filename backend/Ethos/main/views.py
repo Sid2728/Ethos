@@ -4,7 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import UserRegisterForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login,logout
-from .converter import Convert
 from django.core.files.base import ContentFile
 from .models import upload
 from django.shortcuts import render
@@ -62,12 +61,12 @@ def askconvert(request):
         temp = upload()
         temp.video.save(videom.name,videom)
         temp.save()
-        Convert("Ethos/backend/Ethos/main/media/"+videom.name)
+        Convert("main/media/"+videom.name,request)
         # print(audio_file)
-        
+        return render(request,'main/pagetwo.html')
+    
     return render(request,'main/homepage.html')
     Convert("Ethos/backend/Ethos/main/media/"+videom.name)
-    return render(request,'main/pagetwo.html')
 
 def download_view(request):
     
