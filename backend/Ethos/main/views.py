@@ -12,7 +12,7 @@ import secrets
 import random
 import string
 from .ytdown import download
-from . models import Audio
+from . models import Audio, TimeStamp
 def Login(request):
     if request.method == 'POST':
         username = request.POST.get('name')
@@ -63,14 +63,22 @@ def askconvert(request):
         temp.save()
         id = Convert("main/media/"+videom.name.strip().replace(" ","_"),request,temp.id)
         # print(audio_file)
-        # temp.delete()
+        temp.delete()
         return redirect('/audio_detail/'+ str(id))
     
     return render(request,'main/homepage.html')
-    Convert("Ethos/backend/Ethos/main/media/"+videom.name)
+    Convert("Ethos/backend/Ethos/main/media/"+videom.name)    
 
 def audio_detail(request,pk):
     audio = Audio.objects.get(id=pk)
+    print(request.POST.get('time'))
+    if request.POST:
+        timestamp = TimeStamp()
+        timestamp.audio = audio
+        timestamp.comment = request.POST.get('comment')
+        timestamp.time = '00:' + request.POST.get('time')
+        timestamp.save()
+        redirect('allaud')
     context = {
         "audio":audio,
     }

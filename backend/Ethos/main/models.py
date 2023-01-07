@@ -14,6 +14,7 @@ class TimeStamp(models.Model):
     comment = models.TextField(max_length=500)
     time = models.TimeField()
     def __str__(self):
-        return str(self.time,self.audio)
+        return str(self.id)
+
 class upload(models.Model):
     video=models.FileField(upload_to="main/media/")
