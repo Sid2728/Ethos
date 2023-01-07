@@ -8,5 +8,6 @@ urlpatterns = [
     path('convert/',views.askconvert,name='convert'),
     path('download_view/',views.download_view,name='download_view'),
     path('logout/',views.Logout,name='logout'),
-    path('allaudio/',views.Allaud,name='allaud')
+    path('allaudio/',views.Allaud,name='allaud'),
+    path('audio_detail/<pk>',views.audio_detail,name='aud_detail')
 ]

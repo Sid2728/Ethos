@@ -61,22 +61,27 @@ def askconvert(request):
         temp = upload()
         temp.video.save(videom.name,videom)
         temp.save()
-        Convert("main/media/"+videom.name,request)
+        id = Convert("main/media/"+videom.name,request)
         # print(audio_file)
-        return render(request,'main/pagetwo.html')
+        return redirect('/audio_detail/'+ str(id))
     
     return render(request,'main/homepage.html')
     Convert("Ethos/backend/Ethos/main/media/"+videom.name)
+
+def audio_detail(request,pk):
+    audio = Audio.objects.get(id=pk)
+    context = {
+        "audio":audio,
+    }
+    return render(request,'main/pagetwo.html',context)
+
 
 def download_view(request):
     
     if request.method=='POST':
         url = request.POST.get("url")
-        download(url)
-        
-    
-        return render(request,'main/askConvert.html')
-
+        id = download(url,request)
+        return redirect('/audio_detail/'+ str(id))
 
     return render(request, 'download.html', {'url': url})
 # def passing(audiofile):

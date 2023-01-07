@@ -1,7 +1,7 @@
 from pytube import YouTube
 from . models import Audio
 import random
-def download(link):
+def download(link,request):
     youtube_1=YouTube(link)
     videos=youtube_1.streams.filter(only_audio=True)
     idcnt=10000
@@ -11,9 +11,8 @@ def download(link):
     tempath=path+filename
     saveaudio=Audio()
     saveaudio.audioFile=tempath
-    saveaudio.uploaded_by_id =1
-    idcnt=idcnt+1
+    saveaudio.uploaded_by_id = request.user.id
     saveaudio.save()
-    
+    return saveaudio.id    
 # print("done")
 # print(youtube_1.title)
