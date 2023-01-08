@@ -12,15 +12,20 @@
       <div class="header">
         <div class="sitetitle">Name of our Site</div>
         <div class="headerpart2">
-          <input
+          <!-- <input
             type="text"
             class="searchbar"
             placeholder="Search for Audios"
-          />
+          /> -->
+          <a href="{% url 'logout' %}">
+            <button class="logoutbtn btnclass">Logout</button></a
+          >
         </div>
       </div>
-      <button class="allAudiosbtn">All Audios</button>
-      <button class="analyticsbtn">Analytics</button>
+      <a href="{% url 'allaud' %}">
+        <button class="allAudiosbtn btnclass">All Audios</button>
+      </a>
+      <button class="analyticsbtn btnclass">Analytics</button>
       <div class="body">
         <h2 class="heading">Your Extracted Audio Is Here</h2>
         <div class="inputdatadiv">
@@ -44,10 +49,12 @@
           </div>
           <br />
         </div>
-        <button type="submit" class="addCommentBtn">Add Comment</button>
+        <button type="submit" class="addCommentBtn btnclass">
+          Add Comment
+        </button>
         <div class="endbtns">
-          <button type="submit" class="savebtn">Save</button>
-          <button type="button" class="downloadbtn">Download</button>
+          <button type="submit" class="deletebtn btnclass">Delete</button>
+          <button type="button" class="downloadbtn btnclass">Download</button>
         </div>
       </div>
     </div>

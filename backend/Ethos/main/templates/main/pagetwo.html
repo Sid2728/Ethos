@@ -15,14 +15,16 @@
       <div class="header">
         <div class="sitetitle">Name of our Site</div>
         <div class="headerpart2">
-          <input
-            type="text"
-            class="searchbar"
-            placeholder="Search for Audios"
-          />
+          <a href="{% url 'logout' %}">
+            <button class="logoutbtn btnclass">Logout</button>
+          </a>
         </div>
       </div>
-      <a href="{% url 'allaud' %}"><button class="allAudiosbtn btnclass glow-on-hover">All Audios</button></a>
+      <a href="{% url 'allaud' %}"
+        ><button class="allAudiosbtn btnclass glow-on-hover">
+          All Audios
+        </button></a
+      >
       <div class="body">
         <h2 class="heading">Your Extracted Audio Is Here</h2>
         <div class="audioplayer">
@@ -52,9 +54,11 @@
           </div>
           <br />
         </div>
-        <button type="submit" class="addCommentBtn btnclass">Add Comment</button>
+        <button type="submit" class="addCommentBtn btnclass">
+          Add Comment
+        </button>
         <div class="endbtns">
-          <button type="submit" class="savebtn btnclass">Save</button>
+          <button type="submit" class="deletebtn btnclass">Delete</button>
           <button type="button" class="downloadbtn btnclass">Download</button>
         </div>
       </div>
@@ -68,8 +72,8 @@
     var ss,mm
     audio.ontimeupdate = () => {
       var t = audio.currentTime
-      ss = Math.floor(t)%60
-      mm = Math.floor(Math.floor(t)/60)
+      ss = Math.floor(t + 0.5)%60
+      mm = Math.floor(Math.floor(t +0.5)/60)
       if(ss<=9) ss = '0' + ss
       if(mm<=9) mm = '0' + mm
       time.value = '' + mm + ':' + ss;

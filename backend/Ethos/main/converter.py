@@ -7,6 +7,7 @@ from . models import Audio
 def Convert(vid,request,id):
   video=moviepy.editor.VideoFileClip(vid)
   audio=video.audio
+  # print(audio)
   print(audio)
   filepath="main/static/main/audio/"+str(id)+".mp3"
   audio.write_audiofile(filepath)

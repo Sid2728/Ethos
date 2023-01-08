@@ -79,5 +79,64 @@
 
 .analyticsbtn {
   position: relative;
-  left: 60%;
+  left: 75%;
+  color: #ffffff;
+  background-color: #5a49c1;
+  font-size: 1vw;
+  width: 8vw;
+  height: 2.2vw;
+  margin-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border: 1px solid #5a49c1;
+  border-radius: 7px;
+}
+
+.audiocard {
+  width: 50vw;
+  min-height: 10vw;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5%;
+}
+
+.audioname {
+  margin-bottom: 2%;
+  font-size: 2vw;
+}
+
+.hide {
+  display: none;
+}
+
+#seemore {
+  color: #5a49c1;
+  margin-top: 2%;
+}
+
+#seeless {
+  color: #5a49c1;
+  margin-top: 2%;
+}
+
+.btnclass:hover {
+  transition: all 0.4s ease-in-out;
+}
+
+.btnclass:hover,
+.btnclass:focus {
+  transform: scale(1.05, 1.1);
+  box-shadow: 3px 4px 5px grey;
+}
+.logoutbtn {
+  margin-left: 10vw;
+  margin-right: 4vw;
+  color: #ffffff;
+  background-color: #5a49c1;
+  border: 1px solid #5a49c1;
+  border-radius: 8px;
+  padding: 3%;
 }
