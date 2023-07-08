@@ -67,7 +67,8 @@ For a complete list of dependencies, refer to the `requirements.txt` file.
 
 6. Navigate to a timestamp:
 - Click on any timestamp in the list to navigate to that specific time in the audio.
-
+## Link to Portal:
+https://audiofy-hcx1.onrender.com
 
 
 ![Screenshot from 2023-07-09 01-11-52](https://github.com/Kruthikesh/Ethos/assets/98465500/5d90df59-810a-40d6-a233-1a088f7a7472)
