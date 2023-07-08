@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'main/styles/pagetwo.css' %}" />
+    <title>No Audio</title>
+  </head>
+
+<body>
+    <div class="homepage">
+      <div class="header">
+        
+        <div class="sitetitle" style="font-size: 2.5vw;font-weight: 600; display: flex;"><img style="transform: scale(.19);position:relative;right:20px;" src="{% static 'main/images/Vector 5.png' %}" alt=""><p style="font-size: 2.5vw;font-weight: 600; display: flex; position: relative;right: 100px;">AudioVize</p></div>
+        <div class="headerpart2">
+          
+        </div>
+        <a href="{% url 'logout' %}"><button >Logout</button></a>
+      </div>
+      <div class="body">
+        <h1>No audio found</h1>
+        
+        <a href="{% url 'convert' %}"><h2>Try Again</h2></a>
+        <div class="footer"></div>
+      </div>
+    </div>
+  </body>
+    
+</html>

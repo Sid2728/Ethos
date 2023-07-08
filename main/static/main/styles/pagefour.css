@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&display=swap');
+
+* {
+  margin: 0%;
+  font-family: "Inter";
+  font-size: 1vw;
+  /* color: #5a49c1; */
+}
+
+.secondpage {
+  width: 100vw;
+  height: 100%;
+}
+
+.sitetitle {
+  width: 40%;
+  font-size: 1.5vw;
+  background-color: #5a49c1;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 10vh;
+}
+
+.headerpart2 {
+  border: 1px solid #bbbbbb;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbar {
+  margin-left: 30%;
+  width: 40%;
+  height: 45%;
+  border: 2px solid #c0c0c0;
+  border-radius: 10px;
+  display: flex;
+  text-align: center;
+}
+
+.searchbar::placeholder {
+  color: #5a49c1;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.heading {
+  font-size: 2.2vw;
+  margin-bottom: 8%;
+}
+
+.allAudiosbtn {
+  position: relative;
+  left: 80%;
+  color: #ffffff;
+  background-color: #5a49c1;
+  font-size: 1vw;
+  width: 9vw;
+  height: 2.2vw;
+  margin-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border: 1px solid #5a49c1;
+  border-radius: 7px;
+}
+
+.analyticsbtn {
+  position: relative;
+  left: 75%;
+  color: #ffffff;
+  background-color: #5a49c1;
+  font-size: 1vw;
+  width: 8vw;
+  height: 2.2vw;
+  margin-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border: 1px solid #5a49c1;
+  border-radius: 7px;
+}
+
+.audiocard {
+  width: 50vw;
+  min-height: 10vw;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5%;
+}
+
+.audioname {
+  margin-bottom: 2%;
+  font-size: 2vw;
+}
+
+.hide {
+  display: none;
+}
+
+#seemore {
+  color: #5a49c1;
+  margin-top: 2%;
+}
+
+#seeless {
+  color: #5a49c1;
+  margin-top: 2%;
+}
+
+.btnclass:hover {
+  transition: all 0.4s ease-in-out;
+}
+
+.btnclass:hover,
+.btnclass:focus {
+  transform: scale(1.05, 1.1);
+  box-shadow: 3px 4px 5px grey;
+}
+.logoutbtn {
+  margin-left: 10vw;
+  margin-right: 4vw;
+  color: #ffffff;
+  background-color: #5a49c1;
+  border: 1px solid #5a49c1;
+  border-radius: 8px;
+  padding: 3%;
+}
+
+.body {
+  border: 2px solid red;
+  width: 30vw;
+  min-height: fit-content;
+  padding: 5%;
+  position: relative;
+  left: 55vw;
+}
+
+.singleaudio {
+  width: 35vw;
+  height: 15vw;
+  border: 2px solid grey;
+}
+
+.audioname {
+  font-family: 'Montserrat';
+  font-size: 2vw;
+}

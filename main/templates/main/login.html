@@ -1,0 +1,347 @@
+<!-- <!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <p class="navbar-brand"></p>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li id="home"><a href="signup/">Sign-up</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+<body>
+    <div class="container">
+        <div class="signupbox">
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+
+                    <label>Name:</label>
+                    <input type="text" name="name" class="form-control">
+
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" name="password" class="form-control">
+
+                </div>
+
+                <button type="submit" class="btn bttn">Log-in</button>
+
+            </form>
+        </div>
+
+    </div>
+    <div class="footer-padding"></div>
+    <div class="footer">
+    </div>
+    </div>
+</body>
+
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <p class="navbar-brand"></p>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li id="home"><a href="signup/">Sign-up</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+<body>
+    <div class="container">
+        <div class="signupbox">
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+
+                    <label>Name:</label>
+                    <input type="text" name="name" class="form-control">
+
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" name="password" class="form-control">
+
+                </div>
+
+                <button type="submit" class="btn bttn">Log-in</button>
+
+            </form>
+        </div>
+
+    </div>
+    <div class="footer-padding"></div>
+    <div class="footer">
+    </div>
+    </div>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>Login Form Demo</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-size: cover;
+      font-family: sans-serif;
+      background-color: rgb(110, 0, 220);
+      /* background-color: rgb(75, 3, 126); */
+    }
+    .login-wrapper {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .form {
+      /* color: rgb(108, 0, 148); */
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      padding: 80px 40px 40px;
+      background: white;
+      border-radius: 10px;
+      color: #fff;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    }
+    .form::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      transform: skewX(-26deg);
+      transform-origin: bottom left;
+      border-radius: 10px;
+      pointer-events: none;
+    }
+    .form img {
+      position: absolute;
+      top: -50px;
+      left: calc(50% - 50px);
+      width: 100px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+    }
+    .form h2 {
+      text-align: center;
+      letter-spacing: 1px;
+      margin-bottom: 2rem;
+      color: white;
+    }
+    .form .input-group {
+      position: relative;
+    }
+    .form .input-group input {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid rgb(110, 0, 220);
+      outline: none;
+      background-color: transparent;
+      color: inherit;
+    }
+    .form .input-group label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      font-size: 1rem;
+      pointer-events: none;
+      transition: 0.3s ease-out;
+    }
+    .form .input-group input:focus + label,
+    .form .input-group input:valid + label {
+      transform: translateY(-18px);
+      color: white;
+      font-size: 0.8rem;
+    }
+    /*  */
+    .form .input-group1 {
+      position: relative;
+    }
+    .form .input-group1 input {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+      border: none;
+      border-bottom: 1px solid rgb(110, 0, 220);
+      outline: none;
+      background-color: transparent;
+      color: inherit;
+    }
+    .form .input-group1 label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      font-size: 1rem;
+      pointer-events: none;
+      transition: 0.3s ease-out;
+    }
+    .form .input-group1 input:focus + label,
+    .form .input-group1 input:valid + label {
+      transform: translateY(-18px);
+      color: white;
+      font-size: 0.8rem;
+    }
+    /*  */
+    .submit-btn {
+      color:white;
+      display: block;
+      margin-left: auto;
+      border: none;
+      outline: none;
+      background: rgb(110, 0, 220);
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .forgot-pw {
+      color: inherit;
+    }
+    .input-group {
+      background: transparent;
+    }
+    /*  */
+    .input-group1 {
+      background: transparent;
+    }
+    /*  */
+    .signup-btn {
+        text-decoration: underline;
+        text-decoration-color: rgb(110, 0, 220);
+    }
+
+    #forgot-pw {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+      z-index: 1;
+      background: #fff;
+      opacity: 0;
+      transition: 0.6s;
+    }
+    #forgot-pw:target {
+      height: 100%;
+      opacity: 1;
+    }
+    .loginUser {
+      background: transparent;
+    }
+    .close {
+      position: absolute;
+      right: 1.5rem;
+      top: 0.5rem;
+      font-size: 2rem;
+      font-weight: 900;
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+  <body>
+    <div class="login-wrapper">
+      <form class="form" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {% if messages %}
+        {% for message in messages %}
+        <div style="text-align: center;color: red;padding-bottom: 35px;margin-top: -22px;">{{ message }}</div>
+        {% endfor %}       
+        {% endif %}
+        <h2 style="color: rgb(110, 0, 220)">Login</h2>
+        <div class="input-group" style="color: rgb(110, 0, 220);">
+          <input
+            style="color: black; display: inline;";
+            type="text"
+            name="name"
+            placeholder="Username"
+            id="loginUser"
+            required
+          />
+          <label for="loginUser"></label>
+        </div>
+        <div class="input-group1">
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            id="loginPassword"
+            style="color: black;"
+            required
+          />
+          <label for="loginPassword"></label>
+        </div>
+        <div style="text-align: end;">
+          <a href="reset_password/" style="text-decoration: none; color:rgb(110, 0, 220);">
+            Forgot password?
+          </a>
+        </div>
+        <div style="display: flex; margin-top: 15px;">
+          <a href="signup/">
+            <button type="button" class="signup-btn submit-btn">Sign Up</button>
+          </a>
+          <button type="submit" class="submit-btn">Login</button>
+          <!-- <a href="reset_password/">
+            <button type="button" class="signup-btn submit-btn">Forgot password</button>
+          </a> -->
+        </div>
+        
+      </form>
+    </div>
+    <script>
+    </script>
+  </body>
+</html>

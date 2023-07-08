@@ -1,0 +1,480 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="hm1.css" /> -->
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+      * {
+        margin: 0%;
+        font-family: "Inter";
+        font-size: 1vw;
+      }
+
+      .homepage {
+        width: 100vw;
+        height: 100%;
+      }
+
+      .sitetitle {
+        width: 50%;
+        font-size: 1.5vw;
+        background-color: #5a49c1;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .header {
+        display: flex;
+        width: 100%;
+        height: 10vh;
+      }
+
+      .headerpart2 {
+        border: 1px solid #bbbbbb;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .searchbar {
+        margin-left: 30%;
+        width: 40%;
+        height: 45%;
+        border: 2px solid #c0c0c0;
+        border-radius: 10px;
+        display: flex;
+        text-align: center;
+      }
+
+      .searchbar::placeholder {
+        color: #5a49c1;
+      }
+
+      .body {
+        display: flex;
+        justify-content: center;
+      }
+
+      .allAudiosDiv {
+        margin-top: 2%;
+        position: relative;
+        left: 60%;
+      }
+
+      .allAudiosbtn {
+        color: #ffffff;
+        background-color: #5a49c1;
+        width: 7.5vw;
+        height: 2.2vw;
+        padding-left: 2%;
+        padding-right: 2%;
+        margin-left: 50%;
+        border: 1px solid #5a49c1;
+        border-radius: 8px;
+      }
+
+      .inputform {
+        margin-top: 5%;
+        font-size: 2vw;
+      }
+
+      .inputform1 {
+        position: relative;
+        /* left: 6vw; */
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .videoinputbox1 {
+        display: flex;
+        justify-content: center;
+
+        cursor: pointer;
+        width: 26vw;
+        height: 30vh;
+        border: 2px solid #cecdcd;
+        border-radius: 8px;
+        background-color: #e2e0e0;
+      }
+
+      .videoinputtext {
+        color: #6d6b6b;
+        font-size: 1vw;
+        text-align: center;
+        margin-top: 25%;
+      }
+
+      .OR {
+        margin: 1%;
+        text-align: center;
+        margin-bottom: 5%;
+      }
+
+      .urlinputbox {
+        display: flex;
+        margin-left: 13vw;
+        width: 25vw;
+        height: 2vw;
+        border: 2px solid #a9a4a4;
+        background-color: #e2e0e0;
+        border-radius: 6px;
+      }
+
+      .urlinputpart {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .convertbtn {
+        width: 7vw;
+        color: #ffffff;
+        background-color: #5a49c1;
+        border-radius: 7px;
+        padding-left: 1%;
+        padding-right: 2%;
+        border: 1px solid #5a49c1;
+      }
+
+      .urlinputbox::placeholder {
+        color: #636161;
+        text-align: center;
+      }
+
+      .btnclass:hover {
+        transition: all 0.2s ease-in-out;
+      }
+
+      .btnclass:hover,
+      .btnclass:focus {
+        transform: scale(1.05, 1.1);
+        box-shadow: 3px 4px 5px grey;
+      }
+
+      .logoutbtn {
+        margin-left: 10vw;
+        margin-right: 4vw;
+        color: #ffffff;
+        background-color: #5a49c1;
+        border: 1px solid #5a49c1;
+        border-radius: 8px;
+        padding: 3%;
+      }
+
+      .partition {
+        height: 40vh;
+        width: 0vw;
+        border-left: 2px solid #624fd1;
+        position: relative;
+        left: 7%;
+        margin-top: 3%;
+      }
+
+      .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #5a49c1;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 15px;
+        margin-top: 10vh;
+        opacity: 80%;
+      }
+
+      .fileinputbtn {
+        position: relative;
+        left: 35%;
+        height: 5vh;
+        margin-top: 5%;
+      }
+
+      #file-name {
+        position: relative;
+        top: 45%;
+        right: 15%;
+      
+      }
+
+      .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: white;
+        display: block;
+        transition: 0.3s;
+        padding-top: 5px;
+      }
+
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+
+      .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+
+      .home_intro {
+        color: #624fd1;
+        background-color: #efefef;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Inter";
+        width: 70vw;
+        height: 20vh;
+        text-align: center;
+        margin: 8vh 15vw 5vh 15vw;
+        font-size: 1.7vw;
+        font-weight: 600;
+        box-shadow: 0 5px 3px -3px #00000030;
+      }
+
+      #myInput {
+        /* background-image: url('/css/searchicon.png'); */
+        /* Add a search icon to input */
+        background-position: 10px 12px;
+        /* Position the search icon */
+        background-repeat: no-repeat;
+        /* Do not repeat the icon image */
+        width: 175px;
+        /* Full-width */
+        border-radius: 5px;
+        opacity: 50%;
+        font-size: 16px;
+        margin-left: 6px;
+        /* Increase font-size */
+        padding: 12px 20px 12px 40px;
+        /* Add some padding */
+        border: 1px solid #ddd;
+        /* Add a grey border */
+        margin-bottom: 12px;
+        /* Add some space below the input */
+      }
+
+      #myUL {
+        /* Remove default list styling */
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #myUL li a {
+        /* border: 1px solid #ddd; */
+        /* Add a border to all links */
+        margin-top: -1px;
+        /* Prevent double borders */
+        /* background-color: #f6f6f6; */
+        /* Grey background color */
+        padding: 12px;
+        /* Add some padding */
+        text-decoration: none;
+        /* Remove default text underline */
+        font-size: 18px;
+        /* Increase the font-size */
+        /* color: black; */
+        /* Add a black text color */
+        display: block;
+        /* Make it into a block element to fill the whole list */
+      }
+
+      #myUL li a:hover:not(.header) {
+        background-color: #624fd1;
+        /* Add a hover effect to all links, except for headers */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="mySidenav" class="sidenav">
+      <input
+        type="text"
+        id="myInput"
+        onkeyup="myFunction()"
+        placeholder="Search by names.."
+      />
+      <ul id="myUL">
+        {% for audio in allaudios %}
+        <li>
+          <a href="{% url 'aud_detail' audio.id %}">{{ audio.audioname }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="homepage">
+      <div class="header">
+        <div
+          class="sitetitle"
+          style="font-size: 2.5vw; font-weight: 600; display: flex"
+        >
+          <span
+            id="click"
+            style="
+              font-size: 2.5vw;
+              font-weight: 600;
+              display: flex;
+              position: absolute;
+              left: 3%;
+              cursor: pointer;
+            "
+            onclick="openNav()"
+            >&#9776;</span
+          >
+          <img
+            style="transform: scale(0.45); position: relative; left: 35%"
+            src="{% static 'main/images/AudioVizelogo.png' %}"
+            alt=""
+          />
+          <p
+            style="
+              font-size: 2.5vw;
+              font-weight: 600;
+              display: flex;
+              position: relative;
+              right: 450px;
+              display: block;
+            "
+          ></p>
+        </div>
+
+        <div class="headerpart2">
+          <!-- <input
+            type="text"
+            class="searchbar"
+            placeholder="Search for Audios"
+          /> -->
+          <button class="allAudiosbtn btnclass">All Audios</button>
+          <a href="{% url 'logout' %}"
+            ><button class="logoutbtn btnclass">Logout</button></a
+          >
+        </div>
+      </div>
+      <div class="body" style="display: flex; flex-direction: column">
+        <div class="home_intro">
+          Welcome to AudioVize<br />
+          Please drop your video file/youtube url links below
+        </div>
+        <div
+          class="allForm"
+          style="
+            display: flex;
+            flex-direction: row;
+            margin-top: 2vh;
+            justify-content: center;
+          "
+        >
+          <form
+            method="post"
+            class="inputform inputform1"
+            action="{% url 'convert' %}"
+            enctype="multipart/form-data"
+          >
+            {% csrf_token %}
+            <label class="videoinputbox1">
+              <div class="videoinputtext" id="videoinputtext" style="visibility: visible;">Drop Your Video Here</div>
+              <input type="file" id="file-input" class="videoinputbox2" name="vid" placeholder="Drop your video here" />
+              <div id="file-name"></div>
+            </label>
+            <button type="submit" class="convertbtn btnclass fileinputbtn">
+              Convert
+            </button>
+            <br />
+          </form>
+          <!-- <h4 class="OR">OR</h4> -->
+          <div class="partition"></div>
+          <form
+            method="post"
+            action="{% url 'download_view' %}"
+            enctype="multipart/form-data"
+            class="inputform"
+          >
+            {% csrf_token %}
+            <div class="urlinputpart">
+              <input
+                type="url"
+                class="urlinputbox"
+                id="urlinputbox"
+                name="url"
+                placeholder="Paste your Link here"
+              />
+              <button type="submit" class="convertbtn btnclass">Convert</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="footer"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const temp = document.getElementById("click");
+    let key = true;
+    function openNav() {
+      if (key) {
+        temp.innerHTML = "&times";
+        document.getElementById("mySidenav").style.width = "250px";
+      } else {
+        temp.innerHTML = "&#9776";
+        document.getElementById("mySidenav").style.width = "0";
+      }
+      key = !key;
+    }
+    function myFunction() {
+      // Declare variables
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      li = ul.getElementsByTagName("li");
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+    const fileInput = document.getElementById("file-input");
+    const fileNameDisplay = document.getElementById("file-name");
+    const placeholderHandle = document.getElementById("urlinputbox");
+    const placeHolderText = document.getElementById("videoinputtext");
+
+
+    fileInput.addEventListener("change", function (event) {
+      const file = event.target.files[0];
+      if (file) {
+        fileNameDisplay.textContent = file.name;
+        // placeHolderText.style.visibility = "hidden";
+        placeHolderText.style.color = "#e2e0e0";
+
+      } else {
+        fileNameDisplay.textContent = "";
+        placeholderHandle.setAttribute("placeholder", "Select a file");
+        // placeHolderText.style.visibility = "visible";
+        placeHolderText.style.color = "#6d6b6b";
+      }
+    });
+  </script>
+</html>

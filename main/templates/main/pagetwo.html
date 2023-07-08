@@ -1,0 +1,363 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'main/styles/pagetwo.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>2nd Page</title>
+  <style>
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #5a49c1;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 15px;
+      margin-top: 10vh;
+      opacity: 80%;
+    }
+    .hidden{
+      display: none;
+    }
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: white;
+      display: block;
+      transition: 0.3s;
+      padding-top: 5px;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    #myInput {
+
+      /* background-image: url('/css/searchicon.png'); */
+      /* Add a search icon to input */
+      background-position: 10px 12px;
+      /* Position the search icon */
+      background-repeat: no-repeat;
+      /* Do not repeat the icon image */
+      width: 175px;
+      /* Full-width */
+      border-radius: 5px;
+      opacity: 50%;
+      font-size: 16px;
+      margin-left: 6px;
+      /* Increase font-size */
+      padding: 12px 20px 12px 40px;
+      /* Add some padding */
+      border: 1px solid #ddd;
+      /* Add a grey border */
+      margin-bottom: 12px;
+      /* Add some space below the input */
+    }
+
+    #myUL {
+      /* Remove default list styling */
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #myUL li a {
+      /* border: 1px solid #ddd; */
+      /* Add a border to all links */
+      margin-top: -1px;
+      /* Prevent double borders */
+      /* background-color: #f6f6f6; */
+      /* Grey background color */
+      padding: 12px;
+      /* Add some padding */
+      text-decoration: none;
+      /* Remove default text underline */
+      font-size: 18px;
+      /* Increase the font-size */
+      /* color: black; */
+      /* Add a black text color */
+      display: block;
+      /* Make it into a block element to fill the whole list */
+    }
+
+    #myUL li a:hover:not(.header) {
+      background-color: #624fd1;
+      /* Add a hover effect to all links, except for headers */
+    }
+
+    textarea::placeholder {
+      line-height: 130px;
+    }
+
+    .del {
+      width: 8vw;
+    }
+
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite;
+      /* Safari */
+      animation: spin 2s linear infinite;
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="comments">
+    {% for a in comments %}
+    <div class="comment-box">
+      <form method="post" action="{% url 'deleteComment' a.id %}">
+        {% csrf_token %}
+        <button type="submit" style="border: none;padding-right: 4px;"><i class="fa fa-close"></i></button>
+        <input type="hidden" name="hiddenfield" value="{{audio.id}}">
+      </form>
+      <div id="{{a.id}}" data-time='{{a.time|time:"i:s"}}' class="comment-time" onclick="TimeChange(a.id)">
+        {{a.time |time:"i:s"}} :
+      </div>
+      <div class="comment-comment">
+        {{a.comment}}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div id="mySidenav" class="sidenav">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by names..">
+    <ul id="myUL">
+      {% for audio in allaudios %}
+      <li><a href="{% url 'aud_detail' audio.id %}">{{ audio.audioname }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    <div class="secondpage">
+      <div class="header">
+        <div class="sitetitle" style="font-size: 2.5vw;font-weight: 600; display: flex;">
+          <span style="font-size: 2.5vw;font-weight: 600; display: flex; position: relative;left: 270px;cursor:pointer;"
+            onclick="openNav()" id="click">&#9776;</span>
+          <img style="transform: scale(.1);position:relative;right:20px;"
+            src="{% static 'main/images/Component 12.png' %}" alt="">
+          <p style="font-size: 2.5vw;font-weight: 600; display: flex; position: relative;right: 450px;">AudioVize</p>
+        </div>
+        <div class="headerpart2">
+          <a href="{% url 'Home' %}">
+            <button class="logoutbtn del btnclass" type="button">Homepage</button>
+          </a>
+          <a href="{% url 'logout' %}">
+            <button type="button" class="logoutbtn btnclass">Logout</button>
+          </a>
+        </div>
+      </div>
+      <a href="{% url 'analysis' audio.id %}"><button type="button" onclick="loading()" class="allAudiosbtn btnclass glow-on-hover">
+          Analyse
+        </button></a>
+      <div class="body">
+        <h2 class="heading">{{ audio.audioname }}</h2>
+        <div class="audioplayer">
+          <div class="media-controls">
+            <div class="media-buttons">
+              <div onclick="Rewind()" class="rewind-button media-button" label="rewind">
+                <i class="fa fa-backward button-icons"></i>
+                <span class="button-text milli">Rewind</span>
+              </div>
+
+              <div class="play-button media-button" onclick="togglePlay()" label="play">
+                <i id="play" class="fa fa-play button-icons delta"></i>
+                <span class="button-text milli">Play</span>
+              </div>
+
+              <div onclick="Fastforward()" class="fast-forward-button media-button" label="fast forward">
+
+                <i class="fa fa-forward button-icons"></i>
+                <span class="button-text milli">Forward</span>
+              </div>
+            </div>
+            <div class="media-progress">
+              <div class="progress-bar-wrapper progress">
+                <div class="progress-bar" id="bar">
+                </div>
+                {% for a in comments %}
+                <div id="dot{{a.id}}" data-time='{{a.time|time:"i:s"}}' class="dotss" onclick="TimeChange(a.id)"><i
+                    class="fa fa-circle sss"></i></div>
+                {% endfor %}
+
+              </div>
+              <div id="curr" class="progress-time-current milli">
+                00:00
+              </div>
+              <div id="last" class="progress-time-total milli">
+                00:00
+              </div>
+            </div>
+          </div>
+          <audio id="audio" style="display:none;" src={% static audio.audioFile %} controls></audio>
+        </div>
+        <div class="inputdatadiv">
+          <div class="input1">
+            <label for="timestamp">Enter the timestamp : </label>
+            <br />
+            <input id="time" type="text" placeholder="Area for Timestamp" value="00:00" name="time" class="timeinput" />
+          </div>
+          <div class="input2">
+            <label for="Comment">Enter the comment to be added : </label><br />
+            <textarea type="text" class="commentinput" name="comment" placeholder="Area for Comment"></textarea>
+          </div>
+          <br />
+        </div>
+        <button type="submit" class="addCommentBtn btnclass">
+          Add Comment
+        </button>
+        <div class="endbtns">
+          <a href="{% url 'del_audio' audio.id %}">
+            <button type="button" class="deletebtn btnclass">
+              Delete
+            </button>
+          </a>
+          <a href="{% static audio.audioFile %}" download>
+            <button type="button" class="deletebtn btnclass">Download</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div id="loader" class="hidden"></div>
+</body>
+<form method="post">
+  {% csrf_token %}
+  <script>
+    // import moment from 'moment'
+    const audio = document.getElementById('audio')
+    const time = document.getElementById('time')
+    const bar = document.getElementById('bar')
+    const dots = document.getElementsByClassName('dotss')
+    const curr = document.getElementById('curr')
+    onload = () =>setTimeout(()=>{
+      var t = audio.duration
+      console.log(t)
+      ss = Math.floor(t + 0.5) % 60
+      mm = Math.floor(Math.floor(t + 0.5) / 60)
+      if (ss <= 9) ss = '0' + ss
+      if (mm <= 9) mm = '0' + mm
+      document.getElementById('last').innerHTML = '' + mm + ':' + ss;
+      for (var i = 0; i < dots.length; i++) {
+        dots[i].style.left = 'calc(' + ((parseInt(dots[i].dataset.time.split(':')[0]) * 60 + parseInt(dots[i].dataset.time.split(':')[1])) / audio.duration) * 100 + '% - 8.7px )'
+      }
+    },500)
+    var ss, mm
+    audio.ontimeupdate = () => {
+      var t = audio.currentTime
+      ss = Math.floor(t + 0.5) % 60
+      mm = Math.floor(Math.floor(t + 0.5) / 60)
+      if (ss <= 9) ss = '0' + ss
+      if (mm <= 9) mm = '0' + mm
+      time.value = '' + mm + ':' + ss;
+      curr.innerHTML = '' + mm + ':' + ss;
+      bar.style.width = (t / audio.duration) * 100 + '%'
+    }
+    const temp = document.getElementById('click')
+    let key = true;
+    function openNav() {
+      if (key) {
+        temp.innerHTML = "&times";
+        document.getElementById("mySidenav").style.width = "250px";
+      } else {
+        temp.innerHTML = "&#9776";
+        document.getElementById("mySidenav").style.width = "0";
+      }
+      key = !key;
+    }
+    function myFunction() {
+      // Declare variables
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById('myInput');
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      li = ul.getElementsByTagName('li');
+
+      // Loop through all list items, and hide those who don't match the search query
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+    var isPlaying = false;
+
+    function togglePlay() {
+      if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        document.getElementById("play").className = "fa fa-play button-icons delta"
+      } else {
+        audio.play();
+        isPlaying = true;
+        document.getElementById("play").className = "fa fa-pause button-icons delta"
+      }
+      console.log('1')
+    };
+
+    const Fastforward = () => {
+      audio.currentTime += 10
+    }
+    const Rewind = () => {
+      audio.currentTime -= 10
+    }
+    const TimeChange = (e) => {
+      const c = document.getElementById('' + e)
+      audio.currentTime = parseInt(c.dataset.time.split(':')[0]) * 60 + parseInt(c.dataset.time.split(':')[1])
+      // console.log(parseInt(c.dataset.time.split(':')[0])*60 + parseInt(c.dataset.time.split(':')[1]))
+    }
+    // function loading(){
+    //   const enc = document.getElementById('loader')
+    //   enc.classList.value = 
+    // }
+  </script>
+
+</html>

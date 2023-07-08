@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioVize - </title>
+</head>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&display=swap");
+
+* {
+  margin: 0%;
+}
+
+body{
+  background-color: #5a49c1;
+}
+
+.audiodetail {
+  width: 100vw;
+  height: fit-content;
+}
+
+.sitetitle {
+  position: relative;
+  width: 50vw;
+  font-size: 1.5vw;
+  background-color: #5a49c1;
+  color: #ffffff;
+  display: flex;
+  padding-left: 10%;
+  text-align: center;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 10vh;
+}
+
+.headerpart2 {
+  border: 1px solid #bbbbbb;
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoutbtn {
+  position: relative;
+  left: 15vw;
+  width: auto;
+}
+
+.sitename {
+  font-size: 3vw;
+  color: #ffffff;
+}
+
+.searchbar {
+  height: 45%;
+  border: 2px solid #c0c0c0;
+  border-radius: 10px;
+  display: flex;
+  text-align: center;
+}
+
+.searchbar::placeholder {
+  color: #5a49c1;
+}
+
+.body {
+  width: 50vw;
+  min-height: fit-content;
+  margin-left: 20%;
+  padding: 5%;
+  margin-top: 5%;
+  background-color: white;
+  /* box-shadow: 0px 8px 20px gray, -10px 8px 15px gray, 10px 8px 15px gray; */
+  /* border-radius: 0px 30px 0px 30px; */
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.audioname {
+  display: flex;
+  font-family: "Montserrat";
+  font-size: 2.5vw;
+  font-weight: 800;
+  margin-bottom: 5%;
+  margin-top: -4%;
+  align-items: center;
+}
+
+.allcomments {
+  font-family: "Inter";
+  position: relative;
+}
+
+.comment {
+  display: flex;
+  margin-bottom: 5%;
+}
+
+.btnclass {
+  color: #ffffff;
+  background-color: #5a49c1;
+  font-size: 1vw;
+  width: 8vw;
+  height: 2.2vw;
+  margin-top: 2%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border: 1px solid #5a49c1;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btnclass:hover {
+  transition: all 0.4s ease-in-out;
+}
+
+.btnclass:hover,
+.btnclass:focus {
+  transform: scale(1.05, 1.1);
+  box-shadow: 3px 4px 5px grey;
+}
+
+.addcommentbtn {
+  position: absolute;
+  width: auto;
+}
+
+.analyticsbtn {
+  position: absolute;
+  left: 45%;
+}
+
+.deletebtn {
+  position: absolute;
+  left: 95%;
+  width: auto;
+}
+
+.editnamebtn {
+  width: 9vw;
+  position: absolute;
+  right: 25%
+}
+</style>
+<body>
+    
+<!-- {{audio.positive}}
+{{audio.negative}}
+{{audio.neutral}}
+        <div class="comment">
+        </div>
+          
+          
+   
+        </form>
+    </div>--><p style="color:white;font-size: 48px;font-weight: 700; text-align: center; margin-top: 20px;">Analysis of speech in the audio</p>
+    <div class="body" style="height:40vh ;">
+        <div style="margin-top:-60px;margin-bottom: 40px;text-align: right;margin-right: -40px;">
+          <a href="" style="text-decoration: none;">Back to Audio</a> 
+        </div>
+
+          
+         
+        <div>
+            
+            <div><p style="text-align:center ; font-size:32px; color:#5a49c1">Negative Score : <span style="color:rgb(110, 0, 220) ;">{{context.negative}}</span></p> </div>
+            <div><p style="text-align:center ; font-size:32px; color:#5a49c1">Positive Score : <span style="color:rgb(110, 0, 220) ;">{{context.positive}}</span></p></div>
+            <div><p style="text-align:center ; font-size:32px; color:#5a49c1">Neutral Score: <span style="color:rgb(110, 0, 220);">{{context.neutral}}</span></p> </div>
+            <div><p style="text-align:center ; font-size:42px; color:#5a49c1; position: relative; top: 100px;">Positive Ratio :  <span style="color:rgb(110, 0, 220) ;">{{context.ratio}}</span></p> </div>
+        </div> 
+        
+      
+    </div>
+</body>
+</html>

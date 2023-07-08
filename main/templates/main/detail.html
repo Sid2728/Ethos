@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'main/styles/detail.css' %}" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by names..">
+        <ul id="myUL">
+            {% for audio in allaudios %}
+            <li><a href="{% url 'aud_display' audio.id %}">{{ audio.audioname }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="audiodetail">
+        <div class="header">
+            <div class="sitetitle" style="font-size: 2.5vw;font-weight: 600; display: flex;">
+                <span id="click"
+                  style="font-size: 2.5vw;font-weight: 600; display: flex; position: relative;left: 270px;cursor:pointer;"
+                  onclick="openNav()">&#9776;</span>
+                <img style="transform: scale(.1);position:relative;right:20px;"
+                  src="{% static 'main/images/Component 12.png' %}" alt="">
+                <p style="font-size: 2.5vw;font-weight: 600; display: flex; position: relative;right: 450px;">AudioVize</p>
+              </div>
+
+            <div class="headerpart2">
+                <a href="{% url 'logout' %}">
+                    <button class="logoutbtn btnclass">Logout</button>
+                </a>
+                <!-- <input
+            type="text"
+            id="searchbar"
+            class="searchbar"
+            placeholder="Search for Audios"
+            style="
+              border: 1px solid #bbbbbb;
+              width: 100px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          /> -->
+            </div>
+        </div>
+        <div class="body">
+
+            <div class="audioname">
+                {{audio.audioname}}
+                <a href="{% url 'aud_detail' pk %}">
+                    <button type="button" class="btnclass editnamebtn">Edit Name</button>
+                </a>
+            </div>
+            <a href="{% url 'aud_detail' pk %}">
+                <button type="button" class="btnclass addcommentbtn">
+                    Add Comments
+                </button>
+            </a>
+            <a href="{% url 'aud_detail' pk %}">
+                <button type="button" class="btnclass analyticsbtn">
+                    Analytics
+                </button>
+            </a>
+        </div>
+    </div>
+
+    </div>
+
+    {% for timestamp in timestamp %}
+    <div class="body">
+        <div class="allcomments">
+
+            <div class="timestamp"><b>Timestamp</b> : {{timestamp.time|time:"i:s" }}</div>
+            <br />
+            <div class="comment">
+                <b>Comment </b>&nbsp; : {{timestamp.comment}}
+            </div>
+            <form method="post" action="{% url 'deleteComment' timestamp.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btnclass deletebtn">Delete</button>
+                <input type="hidden" name="hiddenfield" value="{{pk}}">
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    <script>
+        const temp = document.getElementById('click')
+        let key = true;
+        function openNav() {
+            if (key) {
+                temp.innerHTML = "&times";
+                document.getElementById("mySidenav").style.width = "250px";
+            } else {
+                temp.innerHTML = "&#9776";
+                document.getElementById("mySidenav").style.width = "0";
+            }
+            key = !key;
+        }
+    </script>
+</body>
+
+</html>

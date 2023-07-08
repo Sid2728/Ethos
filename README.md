@@ -16,7 +16,7 @@ To run AudioVize locally, follow these steps:
 
 1. Clone the repository:
 
-git clone https://github.com/Sid2728/Ethos
+git clone https://github.com/Kruthikesh/Ethos
 
 2. Navigate to the project directory:
 cd Ethos
@@ -40,7 +40,8 @@ AudioVize has the following dependencies:
 
 - Django: A high-level Python web framework for rapid development.
 - Django templates: Used to create HTML templates for rendering views.
-- SQLite: A lightweight, file-based database used as the default database backend in Django.
+- SQLite: A lightweight, file-based database used as the default database backend in Django.(for local server)
+- postgres (for deployement)
 
 For a complete list of dependencies, refer to the `requirements.txt` file.
 
@@ -66,10 +67,11 @@ For a complete list of dependencies, refer to the `requirements.txt` file.
 
 6. Navigate to a timestamp:
 - Click on any timestamp in the list to navigate to that specific time in the audio.
-## Link to Site:
-https://audiofy-hcx1.onrender.com
 
 
 
-
+![Screenshot from 2023-07-09 01-11-52](https://github.com/Kruthikesh/Ethos/assets/98465500/5d90df59-810a-40d6-a233-1a088f7a7472)
+![Screenshot from 2023-07-09 01-11-59](https://github.com/Kruthikesh/Ethos/assets/98465500/56b996d6-83bc-4810-8fcf-f0d1fa0bada2)
+![Screenshot from 2023-07-09 01-12-30](https://github.com/Kruthikesh/Ethos/assets/98465500/05e3cf6a-ab7a-4969-946f-51e10d3fdd08)
+![Screenshot from 2023-07-09 01-20-46](https://github.com/Kruthikesh/Ethos/assets/98465500/f8090b6b-f736-4776-8677-e17c9dc352d0)
 
