@@ -16,7 +16,7 @@ To run AudioVize locally, follow these steps:
 
 1. Clone the repository:
 
-git clone https://github.com/Kruthikesh/Ethos
+git clone https://github.com/Sid2728/Ethos
 
 2. Navigate to the project directory:
 cd Ethos
